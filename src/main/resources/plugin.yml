@@ -1,0 +1,152 @@
+name: Blockwork
+main: no.blockwork.blockwork.Blockwork
+version: ${project.version}
+#database: true # Todo: Switch to Bukkit's native database engine?
+depend: [WorldEdit]
+softdepend: [AntiCheat,VanishNoPacket,PerformanceMonitor,dynmap]
+
+author: Jckf
+website: http://www.minecraft.no/
+
+permissions:
+   blockwork.admin:
+      description: Gives administrator access to Blockwork functions.
+      default: op
+      children:
+         blockwork.admin.extra: true
+         blockwork.supermod: true
+         blockwork.mod: true
+         blockwork.user: true
+
+   blockwork.supermod:
+      description: Gives super moderator access to Blockwork functions.
+      default: false
+      children:
+         blockwork.supermod.extra: true
+         blockwork.mod: true
+         blockwork.user: true
+
+   blockwork.mod:
+      description: Gives moderator access to Blockwork functions.
+      default: false
+      children:
+         blockwork.mod.extra: true
+         blockwork.user: true
+
+   blockwork.user:
+      description: Gives user access to Blockwork functions.
+      default: false
+      children:
+         blockwork.user.extra: true
+
+   blockwork.guest:
+      description: Gives guest access to Blockwork functions.
+      default: false
+      children:
+         blockwork.guest.extra: true
+
+commands:
+   kick:
+      description: Kicks the given player with an optional message.
+      usage: /<command> [player] [reason]
+      permission: blockwork.mod
+
+   ban:
+      description: Bans the given user with an optional message.
+      usage: /<command> [player] [reason]
+      permission: blockwork.mod
+
+   guest:
+      description: Sets a user's primary group to "Awaiting activation".
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   user:
+      description: Sets a user's primary group to "Registered".
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   mod:
+      description: Sets a user's primary group to "Super moderator".
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   admin:
+      description: Sets a user's primary group to "Administrator".
+      usage: /<command> [player]
+      permission: blockwork.admin
+
+   reg:
+      description: Lets a user go from "Awaiting activation" to "Registered".
+      usage: /<command> [secret]
+      permission: blockwork.guest
+
+   group:
+      description: Group management.
+      usage: /<command> [invite/accept/reject/join/list/leave/kick] [player]
+      permission: blockwork.user
+
+   friend:
+      description: Friend management.
+      usage: /<command> [add/remove/list] [player]
+      permission: blockwork.user
+
+   tools:
+      description: Toggle tools.
+      usage: /<command>
+      permission: blockwork.mod
+
+   protect:
+      description: Set block ownership.
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   chown:
+      description: Change block ownership.
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   free:
+      description: Remove block ownership.
+      usage: /<command>
+      permission: blockwork.mod
+
+   tp:
+      description: Teleport to another player.
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   tph:
+      description: Teleport another player to yourself.
+      usage: /<command> [player]
+      permission: blockwork.mod
+
+   goto:
+      description: Teleport to coordinates.
+      usage: /<command> <x> <y> <z>
+      permission: blockwork.mod
+
+   setspawn:
+      description: Changes default spawn location for current world.
+      usage: /<command>
+      permission: blockwork.admin
+
+   tpb:
+      description: Teleport back to where you were before using /tp.
+      usage: /<command>
+      permission: blockwork.mod
+
+   fly:
+      description: Toggle fly mode.
+      usage: /<command>
+      permission: blockwork.mod
+
+   mob:
+      description: Spawn monsters.
+      usage: /<command> [monster type] [count]
+      permission: blockwork.mod
+
+   killall:
+      description: Kills living entities.
+      usage: /<command> [radius]
+      permission: blockwork.mod

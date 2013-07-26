@@ -1,0 +1,71 @@
+tools:
+   enabled: true
+
+blocklog:
+   enabled: true
+
+protection:
+   enabled: true
+
+railways:
+   enabled: true
+
+lumberjack:
+   enabled: true
+
+bugs:
+   enabled: true
+
+pvp:
+   enabled: true
+
+portals:
+   enabled: true
+
+antiafk:
+   enabled: true
+
+debug:
+   enabled: true
+
+mysql:
+   host: 127.0.0.1
+   port: 3306
+   user: blockwork_game
+   password: abc123
+   schema: blockwork
+
+mybb:
+   enabled: true
+   host: 127.0.0.1
+   port: 3306
+   user: blockwork_web
+   password: abc123
+   schema: blockwork
+
+irc:
+   enabled: true
+   host: irc.minecraft.no
+   port: 6667
+   charset: UTF-8
+   nick: Blockwork
+   password: abc123
+   channel: '#blockwork'
+   pm-channel: '#blockwork.pm'
+
+mobs:
+   check-radius: 128
+   limit: 256
+   spawn-safe-radius: 64
+
+chat:
+   enabled: true
+   radius: 128
+
+groups:
+   enabled: true
+   exp-share-radius: 64
+
+afk:
+   max-time: 900
+   cart-distance: 128
