@@ -12,59 +12,61 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.List;
 
 final class GroupsListener implements Listener {
-    private final Blockwork plugin;
-    private final Groups groups;
+	private final Blockwork plugin;
+	private final Groups groups;
 
-    public GroupsListener(final Blockwork pluginInstance, final Groups groupsInstance) {
-        plugin = pluginInstance;
-        groups = groupsInstance;
-    }
+	public GroupsListener(final Blockwork pluginInstance,final Groups groupsInstance) {
+		plugin = pluginInstance;
+		groups = groupsInstance;
+	}
 
-    @EventHandler
-    public void onPlayerQuit(final PlayerQuitEvent event) {
-        final Player player = event.getPlayer();
+	@EventHandler
+	public void onPlayerQuit(final PlayerQuitEvent event) {
+		final Player player = event.getPlayer();
 
-        final Group memberOf = groups.getGroup(player);
-        if (memberOf != null) {
-            memberOf.removeMember(player);
+        this.groups.setChat(player,false);
 
-            if (memberOf.getMembers().isEmpty() && memberOf.getInvites().isEmpty()) {
-                groups.removeGroup(memberOf);
-            }
-        }
+		final Group memberOf = groups.getGroup(player);
+		if (memberOf != null) {
+			memberOf.removeMember(player);
 
-        final Group invitedTo = groups.getInvite(player);
-        if (invitedTo != null) {
-            invitedTo.removeInvite(player);
+			if (memberOf.getMembers().isEmpty() && memberOf.getInvites().isEmpty()) {
+				groups.removeGroup(memberOf);
+			}
+		}
 
-            if (invitedTo.getMembers().isEmpty() && invitedTo.getInvites().isEmpty()) {
-                groups.removeGroup(invitedTo);
-            }
-        }
-    }
+		final Group invitedTo = groups.getInvite(player);
+		if (invitedTo != null) {
+			invitedTo.removeInvite(player);
 
-    @EventHandler
-    public void onPlayerExpChange(final PlayerExpChangeEvent event) {
-        final Player player = event.getPlayer();
-        final Group group = groups.getGroup(player);
+			if (invitedTo.getMembers().isEmpty() && invitedTo.getInvites().isEmpty()) {
+				groups.removeGroup(invitedTo);
+			}
+		}
+	}
 
-        if (group == null) {
-            return;
-        }
+	@EventHandler
+	public void onPlayerExpChange(final PlayerExpChangeEvent event) {
+		final Player player = event.getPlayer();
+		final Group group = groups.getGroup(player);
 
-        final Location location = player.getLocation();
+		if (group == null) {
+			return;
+		}
 
-        final List<Player> members = group.getMembers();
+		final Location location = player.getLocation();
 
-        final int each = event.getAmount() / (members.size() + 1);
-        final int radius = plugin.getConfig().getInt("groups.exp-share-radius");
+		final List<Player> members = group.getMembers();
 
-        for (final Player member : members) {
-            if (member.getWorld() == player.getWorld() && member.getLocation().distanceSquared(location) < Math.pow(radius, 2)) {
-                new ExperienceManager(member).changeExp(each);
-            }
-        }
+		final int each = event.getAmount() / (members.size() + 1);
+		final int radius = plugin.getConfig().getInt("groups.exp-share-radius");
 
-        event.setAmount(each);
-    }
+		for (final Player member : members) {
+			if (member.getWorld() == player.getWorld() && member.getLocation().distanceSquared(location) < Math.pow(radius,2)) {
+				new ExperienceManager(member).changeExp(each);
+			}
+		}
+
+		event.setAmount(each);
+	}
 }
