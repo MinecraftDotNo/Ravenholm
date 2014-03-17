@@ -54,18 +54,23 @@ public class BlockworkListener implements Listener {
         switch (mybb.getUserGroup(player)) {
             case ADMINISTRATOR:
                 player.addAttachment(plugin, "blockwork.admin", true);
+                break;
 
             case SUPER_MODERATOR:
                 player.addAttachment(plugin, "blockwork.supermod", true);
+                break;
 
             case MODERATOR:
                 player.addAttachment(plugin, "blockwork.mod", true);
+                break;
 
             case REGISTERED:
                 player.addAttachment(plugin, "blockwork.user", true);
+                break;
 
             case AWAITING_ACTIVATION:
                 player.addAttachment(plugin, "blockwork.guest", true);
+                break;
         }
 
         plugin.getChat().tagPlayer(player);
