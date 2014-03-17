@@ -167,6 +167,11 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public void playSound(Location location, String s, float v, float v2) {
+
+    }
+
+    @Override
     public void playEffect(Location location, Effect effect, int i) {
 
     }
@@ -207,7 +212,22 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public void removeAchievement(Achievement achievement) {
+
+    }
+
+    @Override
+    public boolean hasAchievement(Achievement achievement) {
+        return false;
+    }
+
+    @Override
     public void incrementStatistic(Statistic statistic) {
+
+    }
+
+    @Override
+    public void decrementStatistic(Statistic statistic) throws IllegalArgumentException {
 
     }
 
@@ -217,12 +237,77 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public void decrementStatistic(Statistic statistic, int i) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public void setStatistic(Statistic statistic, int i) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public int getStatistic(Statistic statistic) throws IllegalArgumentException {
+        return 0;
+    }
+
+    @Override
     public void incrementStatistic(Statistic statistic, Material material) {
 
     }
 
     @Override
+    public void decrementStatistic(Statistic statistic, Material material) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public int getStatistic(Statistic statistic, Material material) throws IllegalArgumentException {
+        return 0;
+    }
+
+    @Override
     public void incrementStatistic(Statistic statistic, Material material, int i) {
+
+    }
+
+    @Override
+    public void decrementStatistic(Statistic statistic, Material material, int i) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public void setStatistic(Statistic statistic, Material material, int i) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public void incrementStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public void decrementStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public int getStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
+        return 0;
+    }
+
+    @Override
+    public void incrementStatistic(Statistic statistic, EntityType entityType, int i) throws IllegalArgumentException {
+
+    }
+
+    @Override
+    public void decrementStatistic(Statistic statistic, EntityType entityType, int i) {
+
+    }
+
+    @Override
+    public void setStatistic(Statistic statistic, EntityType entityType, int i) {
 
     }
 
@@ -413,6 +498,11 @@ public class IrcPlayer implements Player {
 
     @Override
     public void setTexturePack(String s) {
+
+    }
+
+    @Override
+    public void setResourcePack(String s) {
 
     }
 
@@ -642,6 +732,11 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public <T extends Projectile> T launchProjectile(Class<? extends T> aClass, Vector vector) {
+        return null;
+    }
+
+    @Override
     public int getRemainingAir() {
         return 0;
     }
@@ -783,6 +878,21 @@ public class IrcPlayer implements Player {
 
     @Override
     public boolean isCustomNameVisible() {
+        return false;
+    }
+
+    @Override
+    public boolean isLeashed() {
+        return false;
+    }
+
+    @Override
+    public Entity getLeashHolder() throws IllegalStateException {
+        return null;
+    }
+
+    @Override
+    public boolean setLeashHolder(Entity entity) {
         return false;
     }
 

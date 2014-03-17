@@ -16,7 +16,6 @@ permissions:
          blockwork.admin.extra: true
          blockwork.supermod: true
          blockwork.mod: true
-         blockwork.user: true
 
    blockwork.supermod:
       description: Gives super moderator access to Blockwork functions.
@@ -24,14 +23,12 @@ permissions:
       children:
          blockwork.supermod.extra: true
          blockwork.mod: true
-         blockwork.user: true
 
    blockwork.mod:
       description: Gives moderator access to Blockwork functions.
       default: false
       children:
          blockwork.mod.extra: true
-         blockwork.user: true
 
    blockwork.user:
       description: Gives user access to Blockwork functions.

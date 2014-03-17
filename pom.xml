@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.minecraft</groupId>
     <artifactId>Ravenholm</artifactId>
-    <version>1.6.2-R0.1-SNAPSHOT</version>
+    <version>1.7.2-R0.4-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

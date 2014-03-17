@@ -20,6 +20,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.event.world.StructureGrowEvent;
 import org.bukkit.material.Bed;
+import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.BlockIterator;
 
 import java.util.Arrays;
@@ -398,7 +399,11 @@ final class ProtectionListener implements Listener {
         Entity damager = event.getDamager();
 
         if (damager instanceof Projectile) {
-            damager = ((Projectile) damager).getShooter();
+            ProjectileSource source = ((Projectile) damager).getShooter();
+
+            if (source instanceof Entity) {
+                damager = (Entity) source;
+            }
         }
 
         if (!(damager instanceof Player)) {

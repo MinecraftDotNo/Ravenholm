@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.projectiles.ProjectileSource;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -50,7 +51,11 @@ public final class Pvp implements Listener {
         Entity txe = event.getDamager();
 
         if (txe instanceof Projectile) {
-            txe = ((Projectile) txe).getShooter();
+            ProjectileSource source = ((Projectile) txe).getShooter();
+
+            if (source instanceof Entity) {
+                txe = (Entity) source;
+            }
         }
 
         if (!(rxe instanceof Player) || !(txe instanceof Player) || txe == rxe) {
