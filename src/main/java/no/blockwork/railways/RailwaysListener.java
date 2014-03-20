@@ -5,10 +5,7 @@ import no.blockwork.utils.InventoryUtils;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Minecart;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Vehicle;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.vehicle.VehicleDamageEvent;
@@ -81,7 +78,11 @@ final class RailwaysListener implements Listener {
     @EventHandler
     public void onVehicleDamage(final VehicleDamageEvent event) {
         if (event.getVehicle() instanceof Minecart && event.getAttacker() instanceof Player) {
-            event.setCancelled(true);
+            Entity passenger = event.getVehicle().getPassenger();
+
+            if (passenger instanceof Player) {
+                event.setCancelled(true);
+            }
         }
     }
 }

@@ -66,7 +66,11 @@ class ChatListener implements Listener {
 			event.setCancelled(true);
 			event.setFormat(ChatColor.AQUA + "[Privat]" + ChatColor.RESET + " %s: %s");
 
-			String display = String.format(event.getFormat(),player.getDisplayName(),message.split(": ?",2)[1]);
+			String display = String.format(
+                event.getFormat(),
+                player.getDisplayName() + " -> " + pmRecipient.getDisplayName(),
+                message.split(": ?",2)[1]
+            );
 
 			player.sendMessage(display);
 			pmRecipient.sendMessage(display);
