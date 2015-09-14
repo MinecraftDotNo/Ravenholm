@@ -7,7 +7,6 @@ import com.sorcix.sirc.User;
 import no.blockwork.blockwork.Blockwork;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 class IrcMessageListener implements MessageListener {
@@ -40,7 +39,7 @@ class IrcMessageListener implements MessageListener {
                     false,
                     new IrcPlayer(plugin.getServer(), sender.getNick()),
                     message,
-                    new HashSet<>(Arrays.asList(plugin.getServer().getOnlinePlayers()))
+                    new HashSet<>(plugin.getServer().getOnlinePlayers())
             ));
         }
     }

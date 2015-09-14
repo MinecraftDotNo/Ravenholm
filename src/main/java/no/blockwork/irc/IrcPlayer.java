@@ -197,6 +197,11 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public void sendSignChange(Location location, String[] strings) throws IllegalArgumentException {
+
+    }
+
+    @Override
     public void sendMap(MapView mapView) {
 
     }
@@ -537,6 +542,31 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public Entity getSpectatorTarget() {
+        return null;
+    }
+
+    @Override
+    public void setSpectatorTarget(Entity entity) {
+
+    }
+
+    @Override
+    public void sendTitle(String s, String s1) {
+
+    }
+
+    @Override
+    public void resetTitle() {
+
+    }
+
+    @Override
+    public Spigot spigot() {
+        return null;
+    }
+
+    @Override
     public boolean isOnline() {
         return false;
     }
@@ -702,12 +732,27 @@ public class IrcPlayer implements Player {
     }
 
     @Override
+    public List<Block> getLineOfSight(Set<Material> set, int i) {
+        return null;
+    }
+
+    @Override
     public Block getTargetBlock(HashSet<Byte> bytes, int i) {
         return null;
     }
 
     @Override
+    public Block getTargetBlock(Set<Material> set, int i) {
+        return null;
+    }
+
+    @Override
     public List<Block> getLastTwoTargetBlocks(HashSet<Byte> bytes, int i) {
+        return null;
+    }
+
+    @Override
+    public List<Block> getLastTwoTargetBlocks(Set<Material> set, int i) {
         return null;
     }
 
@@ -943,12 +988,7 @@ public class IrcPlayer implements Player {
 
     @Override
     public List<Entity> getNearbyEntities(double v, double v1, double v2) {
-        List<Entity> entities = new ArrayList<>();
-
-        Player[] players = server.getOnlinePlayers();
-        Collections.addAll(entities, players);
-
-        return entities;
+        return new ArrayList<Entity>(server.getOnlinePlayers());
     }
 
     @Override

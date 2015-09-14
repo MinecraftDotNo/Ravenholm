@@ -12,6 +12,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import java.util.HashSet;
+
 public final class ToolsMobCommand implements CommandExecutor {
     private final Blockwork plugin;
     private final Tools tools;
@@ -52,7 +54,7 @@ public final class ToolsMobCommand implements CommandExecutor {
         player.sendMessage(ChatColor.GRAY + "Spawner " + n + " monstere av typen " + type.toString() + "...");
 
         Location l = player.getLocation();
-        final Block target = player.getTargetBlock(null, 100);
+        final Block target = player.getTargetBlock((HashSet<Byte>) null, 100);
         if (target != null) {
             l = target.getRelative(BlockFace.UP).getLocation();
         }

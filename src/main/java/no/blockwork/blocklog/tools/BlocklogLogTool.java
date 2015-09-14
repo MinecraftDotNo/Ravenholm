@@ -66,7 +66,7 @@ public final class BlocklogLogTool extends Tool {
         final Player player = event.getPlayer();
         final Material item = player.getItemInHand().getType();
 
-        if (item != Material.LOCKED_CHEST) {
+        if (item != Material.TRAPPED_CHEST) {
             return;
         }
 

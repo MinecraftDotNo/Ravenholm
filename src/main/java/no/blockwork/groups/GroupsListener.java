@@ -1,6 +1,6 @@
 package no.blockwork.groups;
 
-import me.desht.dhutils.ExperienceManager;
+//import me.desht.dhutils.ExperienceManager;
 import no.blockwork.blockwork.Blockwork;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -45,7 +45,7 @@ final class GroupsListener implements Listener {
 		}
 	}
 
-	@EventHandler
+	/*@EventHandler
 	public void onPlayerExpChange(final PlayerExpChangeEvent event) {
 		final Player player = event.getPlayer();
 		final Group group = groups.getGroup(player);
@@ -68,5 +68,5 @@ final class GroupsListener implements Listener {
 		}
 
 		event.setAmount(each);
-	}
+	}*/
 }

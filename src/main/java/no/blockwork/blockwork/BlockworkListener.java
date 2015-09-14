@@ -1,6 +1,6 @@
 package no.blockwork.blockwork;
 
-import me.desht.dhutils.ExperienceManager;
+//import me.desht.dhutils.ExperienceManager;
 import no.blockwork.mybb.MyBb;
 import no.blockwork.protection.Protection;
 import no.blockwork.utils.InventoryUtils;
@@ -148,7 +148,7 @@ public class BlockworkListener implements Listener {
                         hand != null &&
                         hand.getType() == Material.GLASS_BOTTLE
                 ) {
-            ExperienceManager e = new ExperienceManager(p);
+            /*ExperienceManager e = new ExperienceManager(p);
             if (e.hasExp(10)) {
                 if (hand.getAmount() > 1) {
                     hand.setAmount(hand.getAmount() - 1);
@@ -157,7 +157,7 @@ public class BlockworkListener implements Listener {
                 }
                 e.changeExp(-10);
                 InventoryUtils.addOrSpawn(p, new ItemStack(Material.EXP_BOTTLE));
-            }
+            }*/
         }
     }
 

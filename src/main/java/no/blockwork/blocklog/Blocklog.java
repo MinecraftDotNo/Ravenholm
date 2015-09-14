@@ -50,7 +50,7 @@ public final class Blocklog implements BasePlugin {
 
         final Tools tools = plugin.getTools();
         tools.registerTool(Material.BOOK, blocklogLogTool);
-        tools.registerTool(Material.LOCKED_CHEST, blocklogLogTool);
+        tools.registerTool(Material.TRAPPED_CHEST, blocklogLogTool);
     }
 
     @Override
